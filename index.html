@@ -3,40 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Múltipla Escolha</title>
+    <title>Flashcards de Programação</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="seu-style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div class="score-container">
-        Pontuação: <span id="score">0</span>
-    </div>
+    <header>
+        <h1>Flashcards de Programação</h1>
+        <p class="subtitle">Clique nas cartas para revelar as respostas</p>
+    </header>
 
-    <main id="container">
-        <div class="question-container">
-            <h2 id="question-text">Qual é a capital do Brasil?</h2>
-            <div class="progress-bar">
-                <div class="progress" id="progress-bar"></div>
-            </div>
-        </div>
-
-        <div class="options-container" id="options-container">
-            <!-- As opções serão inseridas dinamicamente via JavaScript -->
-        </div>
-
-        <div class="feedback" id="feedback">
-            <!-- Feedback será inserido aqui -->
-        </div>
-
-        <button class="next-btn" id="next-btn">Próxima Pergunta</button>
+    <main>
+        <section id="container">
+            <!-- Cartas serão inseridas dinamicamente via JavaScript -->
+        </section>
     </main>
 
     <footer>
-        <p>Quiz Interativo - Desenvolvido para fins educacionais</p>
+        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
 
-    <script src="seu-script.js"></script>
+    <!-- Alterado para carregar sem type="module" -->
+    <script src="assets/perguntas.js"></script>
+    <script src="assets/app.js"></script>
 </body>
 </html>
