@@ -1,41 +1,32 @@
+// Aguarda o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
-    const container = document.createElement('div');
-    container.className = 'container';
-    document.body.insertBefore(container, document.body.firstChild);
-
-    // Criar cartões para cada pergunta
+    const container = document.getElementById('container');
+    
+    // Cria as cartas para cada pergunta
     perguntas.forEach(pergunta => {
-        const card = document.createElement('div');
-        card.className = 'card';
-
+        const card = document.createElement('article');
+        card.className = 'cartao';
+        
         card.innerHTML = `
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>${pergunta.categoria}</h2>
+            <div class="cartao__conteudo">
+                <h3>${pergunta.categoria}</h3>
+                <div class="cartao__conteudo__pergunta">
                     <p>${pergunta.pergunta}</p>
                 </div>
-                <div class="card-back">
+                <div class="cartao__conteudo__resposta">
                     <p>${pergunta.resposta}</p>
                 </div>
             </div>
         `;
-
+        
         container.appendChild(card);
     });
 
-    // Adicionar título ao projeto
-    const header = document.createElement('h1');
-    header.textContent = 'Flashcards de Programação';
-    header.style.color = '#4dffb4';
-    header.style.marginBottom = '30px';
-    header.style.textAlign = 'center';
-    document.body.insertBefore(header, container);
-
-    // Adicionar instruções
-    const subtitle = document.createElement('p');
-    subtitle.textContent = 'Passe o mouse sobre os cartões para ver as respostas';
-    subtitle.style.color = '#aaaaaa';
-    subtitle.style.marginBottom = '40px';
-    subtitle.style.textAlign = 'center';
-    document.body.insertBefore(subtitle, container);
+    // Adiciona evento de clique para virar as cartas
+    const cards = document.querySelectorAll('.cartao__conteudo');
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = this.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        });
+    });
 });
