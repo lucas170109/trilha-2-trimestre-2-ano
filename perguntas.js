@@ -1,24 +1,32 @@
 const perguntas = [
     {
+        id: 1,
+        categoria: "HTML",
+        pergunta: "O que é HTML?",
+        resposta: "HTML (HyperText Markup Language) é a linguagem de marcação padrão para criar páginas web, definindo a estrutura e o conteúdo."
+    },
+    {
+        id: 2,
+        categoria: "CSS",
+        pergunta: "O que é CSS?",
+        resposta: "CSS (Cascading Style Sheets) é uma linguagem de estilo usada para descrever a apresentação visual de documentos HTML."
+    },
+    {
+        id: 3,
         categoria: "JavaScript",
         pergunta: "O que é JavaScript?",
-        resposta: "JavaScript é uma linguagem de programação interpretada, usada principalmente para desenvolvimento web front-end."
+        resposta: "JavaScript é uma linguagem de programação que permite implementar comportamentos complexos em páginas web, tornando-as interativas."
     },
     {
-        categoria: "HTML",
-        pergunta: "Qual a função da tag <head> no HTML?",
-        resposta: "A tag <head> contém metadados, links para arquivos CSS e JavaScript, e o título da página."
+        id: 4,
+        categoria: "Frontend",
+        pergunta: "O que é o DOM?",
+        resposta: "DOM (Document Object Model) é uma representação em forma de árvore dos elementos da página que pode ser manipulada com JavaScript."
     },
     {
-        categoria: "CSS",
-        pergunta: "O que significa CSS?",
-        resposta: "CSS significa Cascading Style Sheets (Folhas de Estilo em Cascata), usado para estilizar elementos HTML."
-    },
-    {
-        categoria: "JavaScript",
-        pergunta: "Qual a diferença entre let, const e var?",
-        resposta: "var tem escopo de função, let tem escopo de bloco e pode ser reatribuída, const tem escopo de bloco mas não pode ser reatribuída."
+        id: 5,
+        categoria: "Web",
+        pergunta: "O que é uma API?",
+        resposta: "API (Application Programming Interface) é um conjunto de protocolos que permite a comunicação entre diferentes sistemas de software."
     }
 ];
-
-// Não precisa de export/import se não estiver usando módulos
