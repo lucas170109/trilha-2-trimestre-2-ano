@@ -1,10 +1,12 @@
+// Aguarda o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('container');
-    const perguntas = carregarPerguntas();
-
-    perguntas.forEach((pergunta, index) => {
+    
+    // Cria as cartas para cada pergunta
+    perguntas.forEach(pergunta => {
         const card = document.createElement('article');
         card.className = 'cartao';
+        
         card.innerHTML = `
             <div class="cartao__conteudo">
                 <h3>${pergunta.categoria}</h3>
@@ -16,10 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
+        
         container.appendChild(card);
     });
 
-    // Adiciona efeito de hover após carregar as cartas
+    // Adiciona evento de clique para virar as cartas
     const cards = document.querySelectorAll('.cartao__conteudo');
     cards.forEach(card => {
         card.addEventListener('click', function() {
