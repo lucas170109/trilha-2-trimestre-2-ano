@@ -1,15 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards de Programação</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Flashcards Interativos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #263238, #37474F);
+      padding: 40px;
+      margin: 0;
+      color: #fff;
+    }
+    h1 {
+      text-align: center;
+      color: #80DEEA;
+      margin-bottom: 50px;
+    }
+    .categoria {
+      margin-bottom: 50px;
+    }
+    .categoria h2 {
+      color: #4DD0E1;
+      border-bottom: 2px solid #80DEEA;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .flashcard {
+      width: 260px;
+      min-height: 160px;
+      background: #455A64;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      padding: 15px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .flashcard:hover {
+      transform: scale(1.05);
+    }
+    .pergunta {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #FFF59D;
+    }
+    .resposta {
+      display: none;
+      color: #C8E6C9;
+    }
+    .alternativas button {
+      display: block;
+      margin: 5px 0;
+      background: #607D8B;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .alternativas button:hover {
+      background: #78909C;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #B0BEC5;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Todo conteúdo é gerado dinamicamente pelo app.js -->
-    
-    <script src="perguntas.js"></script>
-    <script src="app.js"></script>
+
+  <h1>Flashcards Interativos</h1>
+
+  <!-- Programação -->
+  <div class="categoria">
+    <h2>Programação</h2>
+    <div class="cards-container">
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">O que é Python?</div>
+        <div class="resposta">Linguagem de programação de alto nível, interpretada e de tipagem dinâmica.</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">Qual destes NÃO é um tipo de dado em JavaScript?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">String</button>
+          <button onclick="verificar(this, false)">Number</button>
+          <button onclick="verificar(this, true)">Banana</button>
+        </div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">HTML é linguagem de programação? (V/F)</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">Verdadeiro</button>
+          <button onclick="verificar(this, true)">Falso</button>
+        </div>
+      </div>
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">O que significa CSS?</div>
+        <div class="resposta">Cascading Style Sheets (Folhas de Estilo em Cascata).</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">Qual a função do comando "git commit"?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, true)">Salvar mudanças no repositório</button>
+          <button onclick="verificar(this, false)">Enviar e-mail</button>
+          <button onclick="verificar(this, false)">Rodar o código</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Geografia -->
+  <div class="categoria">
+    <h2>Geografia</h2>
+    <div class="cards-container">
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">Qual a capital da França?</div>
+        <div class="resposta">Paris</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">O Brasil faz fronteira com quantos países?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">8</button>
+          <button onclick="verificar(this, false)">11</button>
+          <button onclick="verificar(this, true)">10</button>
+        </div>
+      </div>
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">Qual é o maior oceano do mundo?</div>
+        <div class="resposta">Oceano Pacífico</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">O Monte Everest está localizado em qual continente?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, true)">Ásia</button>
+          <button onclick="verificar(this, false)">Europa</button>
+          <button onclick="verificar(this, false)">América</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inglês -->
+  <div class="categoria">
+    <h2>Língua Inglesa</h2>
+    <div class="cards-container">
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">Como se diz "obrigado" em inglês?</div>
+        <div class="resposta">Thank you</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">Traduza: "I am happy"</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">Eu sou rápido</button>
+          <button onclick="verificar(this, true)">Eu estou feliz</button>
+          <button onclick="verificar(this, false)">Eu tenho fome</button>
+        </div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">Qual é o plural de "child"?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">Childs</button>
+          <button onclick="verificar(this, true)">Children</button>
+          <button onclick="verificar(this, false)">Childes</button>
+        </div>
+      </div>
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">O que significa "Good night"?</div>
+        <div class="resposta">Boa noite</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ciências -->
+  <div class="categoria">
+    <h2>Ciências</h2>
+    <div class="cards-container">
+      <div class="flashcard">
+        <div class="pergunta">Qual planeta é conhecido como "planeta vermelho"?</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, true)">Marte</button>
+          <button onclick="verificar(this, false)">Júpiter</button>
+          <button onclick="verificar(this, false)">Saturno</button>
+        </div>
+      </div>
+      <div class="flashcard" onclick="mostrarResposta(this)">
+        <div class="pergunta">Qual é o gás mais abundante na atmosfera?</div>
+        <div class="resposta">Nitrogênio</div>
+      </div>
+      <div class="flashcard">
+        <div class="pergunta">O Sol é uma...</div>
+        <div class="alternativas">
+          <button onclick="verificar(this, false)">Lua</button>
+          <button onclick="verificar(this, true)">Estrela</button>
+          <button onclick="verificar(this, false)">Planeta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Projeto expandido com mais perguntas e formatos.
+  </div>
+
+  <script>
+    function mostrarResposta(card) {
+      const resposta = card.querySelector('.resposta');
+      resposta.style.display = resposta.style.display === 'block' ? 'none' : 'block';
+    }
+    function verificar(botao, correto) {
+      if (correto) {
+        botao.style.background = '#4CAF50';
+      } else {
+        botao.style.background = '#F44336';
+      }
+    }
+  </script>
 </body>
 </html>
